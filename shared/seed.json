@@ -1,0 +1,148 @@
+{
+  "home": {
+    "id": "home_winterfeldt",
+    "address": "Winterfeldtplatz 12",
+    "city": "Berlin",
+    "rooms": "2 rooms",
+    "movedIn": "2025-03-01",
+    "tenantName": "Leon Keller",
+    "landlordName": "Frau Adler",
+    "seasonNote": "Heating is running ahead of last winter.",
+    "limits": {
+      "currency": "EUR",
+      "smallRepairCap": 120,
+      "yearlyCap": 300,
+      "yearlySpent": 40,
+      "tenantPays": [
+        "Small repairs up to 120 euros each, and 300 euros in a year",
+        "Holes from shelves and pictures, made good before the keys go back",
+        "Air the rooms in winter so damp does not settle",
+        "Check the smoke alarm once a year"
+      ],
+      "landlordPays": [
+        "The building, the pipes, and the heating system",
+        "Damp that comes from the structure",
+        "Replacing a fitting that has worn out in ordinary use"
+      ]
+    }
+  },
+  "journey": {
+    "phases": [
+      {
+        "id": "arriving",
+        "title": "Arriving",
+        "items": [
+          {"id": "j1", "title": "Keep the signed lease in the house papers", "owner": "both", "done": true},
+          {"id": "j2", "title": "Photograph every room on the day you get the keys", "owner": "tenant", "done": true},
+          {"id": "j3", "title": "Register the address", "owner": "tenant", "done": true},
+          {"id": "j4", "title": "Note the meter numbers on move-in day", "owner": "both", "done": true}
+        ]
+      },
+      {
+        "id": "living",
+        "title": "Living here",
+        "items": [
+          {"id": "j5", "title": "Check the smoke alarm", "owner": "tenant", "due": "2026-12-01", "done": false},
+          {"id": "j6", "title": "Air the rooms each morning while the heating is on", "owner": "tenant", "done": false},
+          {"id": "j7", "title": "Read the meters and set them against last winter", "owner": "tenant", "done": false},
+          {"id": "j8", "title": "Look at the October electricity bill. It is still an estimate", "owner": "tenant", "done": false}
+        ]
+      },
+      {
+        "id": "leaving",
+        "title": "Leaving",
+        "items": [
+          {"id": "j9", "title": "Fill the holes from the shelf in the hall", "owner": "tenant", "done": false, "starts": "Three weeks before the keys go back"},
+          {"id": "j10", "title": "Walk the rooms with the move-in photos", "owner": "both", "done": false, "starts": "Three weeks before the keys go back"},
+          {"id": "j11", "title": "Read every meter on the last morning", "owner": "both", "done": false, "starts": "The morning you hand the keys back"}
+        ]
+      }
+    ]
+  },
+  "papers": [
+    {
+      "id": "paper_lease",
+      "kind": "lease",
+      "title": "Lease",
+      "language": "de",
+      "added": "2025-03-01",
+      "original": "Kleinreparaturen bis 120 Euro je Reparatur, hoechstens 300 Euro im Jahr, traegt der Mieter. Schoenheitsreparaturen und Duebelloecher sind bei Rueckgabe vom Mieter zu beseitigen. Der Vermieter traegt Instandsetzung an Gebäude, Leitungen und Heizung.",
+      "summary": "You cover small repairs up to 120 euros each, and 300 euros in a year. Holes are yours to fill when you leave. Frau Adler covers the building, the pipes, and the heating.",
+      "translation": "Small repairs up to 120 euros each, and at most 300 euros a year, are the tenant's. Cosmetic repairs and drilled holes are made good by the tenant when the apartment is returned. The landlord carries repairs to the building, the pipes, and the heating."
+    },
+    {
+      "id": "paper_power",
+      "kind": "bill",
+      "title": "Electricity, October",
+      "language": "de",
+      "added": "2026-11-02",
+      "original": "Abschlag November 96 Euro. Jahresverbrauch geschaetzt 2800 kWh. Zaehlerstand wurde nicht abgelesen.",
+      "summary": "This bill is still an estimate. No one read the meter. The supplier assumes 2800 kWh for the year, and the November advance is 96 euros.",
+      "translation": "November advance payment 96 euros. Yearly use estimated at 2800 kWh. The meter was not read.",
+      "flags": ["estimate", "meter_not_read"]
+    },
+    {
+      "id": "paper_rules",
+      "kind": "notice",
+      "title": "House rules",
+      "language": "de",
+      "added": "2025-03-01",
+      "original": "Ruhe von 22 bis 6 Uhr. Muelltonnen am Vorabend der Abholung rausstellen.",
+      "summary": "Quiet from 10 at night until 6 in the morning. Bins go out the evening before collection.",
+      "translation": "Quiet hours from 10 p.m. to 6 a.m. Put the bins out the evening before collection."
+    }
+  ],
+  "issues": [
+    {
+      "id": "issue_damp",
+      "kind": "damp",
+      "title": "Damp in the corner",
+      "payer": "depends",
+      "reason": "If the wall is cold and the room was kept shut, the airing is yours. If the plaster is wet from outside, it is Frau Adler's.",
+      "diy": ["Wipe the spot and keep a note of the date", "Air the room for ten minutes, heating on low", "Leave a gap behind furniture on that wall"],
+      "trade": "painter",
+      "askLandlordWhen": "The spot grows, or the plaster is soft"
+    },
+    {
+      "id": "issue_holes",
+      "kind": "holes",
+      "title": "Holes from a shelf",
+      "payer": "tenant",
+      "reason": "The lease says drilled holes are filled before the keys go back. This sits inside the repair cap only if a tradesperson does a small fix. Filling them yourself costs filler, not the cap.",
+      "diy": ["Brush out the dust", "Fill, let it dry, fill again if it sinks", "Touch the paint only on the patch"],
+      "trade": "painter",
+      "askLandlordWhen": "The hole is in tile or in a pipe chase"
+    },
+    {
+      "id": "issue_tap",
+      "kind": "tap",
+      "title": "The kitchen tap drips",
+      "payer": "tenant",
+      "reason": "A drip from a worn washer is a small repair. You pay up to 120 euros for this one. The year still has 260 euros of the cap left.",
+      "diy": ["Put a bowl under it tonight", "Turn the shutoff under the sink if it worsens"],
+      "trade": "plumber",
+      "askLandlordWhen": "Water comes from the wall, not the spout"
+    },
+    {
+      "id": "issue_alarm",
+      "kind": "alarm",
+      "title": "Smoke alarm chirps",
+      "payer": "tenant",
+      "reason": "You keep the alarm able to sound. A yearly check is yours. A dead unit that was never installed is Frau Adler's.",
+      "diy": ["Press the test button", "Replace the battery if it still chirps", "Photograph the unit after the test"],
+      "trade": "electrician",
+      "askLandlordWhen": "There is no alarm in a room that should have one"
+    }
+  ],
+  "meters": [
+    {"id": "cold", "label": "Cold water", "unit": "m3", "lastYear": 42, "thisYear": 38, "note": "Close to last year."},
+    {"id": "hot", "label": "Hot water", "unit": "m3", "lastYear": 18, "thisYear": 21, "note": "A little higher."},
+    {"id": "power", "label": "Electricity", "unit": "kWh", "lastYear": 2100, "thisYear": 1900, "note": "Under last year. The October bill still assumes 2800."},
+    {"id": "heat", "label": "Heating", "unit": "units", "lastYear": 680, "thisYear": 820, "note": "About a fifth higher than last winter."}
+  ],
+  "trades": [
+    {"id": "plumber_ada", "trade": "plumber", "name": "Ada Krug", "area": "Schöneberg", "nextSlot": "Thursday morning"},
+    {"id": "painter_jonas", "trade": "painter", "name": "Jonas Feld", "area": "Kreuzberg", "nextSlot": "Tuesday afternoon"},
+    {"id": "electric_mira", "trade": "electrician", "name": "Mira Sol", "area": "Schöneberg", "nextSlot": "Friday"}
+  ]
+}
